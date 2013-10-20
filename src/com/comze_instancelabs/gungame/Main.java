@@ -964,9 +964,11 @@ public final class Main extends JavaPlugin implements Listener{
     @EventHandler
     public void onEntityDamage(EntityDamageEvent event)
 	{
-	    if (event.getCause().equals(DamageCause.FALL) && arenap.containsKey((Player)event.getEntity()) && event.getEntity() instanceof Player){
-	    	event.setCancelled(true);
-	    }
+    	if(event.getEntity() instanceof Player){
+	    	if (event.getCause().equals(DamageCause.FALL) && arenap.containsKey((Player)event.getEntity())){
+		    	event.setCancelled(true);
+		    }	
+    	}
 	}
     
     
