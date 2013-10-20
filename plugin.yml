@@ -1,0 +1,47 @@
+name: comzegungame
+main: com.comze_instancelabs.gungame.Main
+version: 1.0
+author: instancelabs
+permissions:
+  comzegungame.sign:
+    description: Gives access to signgungame
+commands:
+   createarena-gun:
+      description: Create a new arena.
+      usage: /createarena [name]
+   removearena-gun:
+      description: Remove an arena.
+      usage: /removearena [name]
+   cleararena-gun:
+      description: Clear an arena.
+      usage: /cleararena [name]
+   setspawn-gun:
+      description: Set spawn
+      usage: /setspawn [name]
+   setlobbyspawn-gun:
+      description: Set spawn 2
+      usage: /setlobbyspawn [name]
+   gp:
+      description: Get your current gunpoints
+      usage: /gp
+   lb-gun:
+      description: Get the top 5 of best PVP players!
+      usage: /lb-gun
+   leaderboards-gun:
+      description: Get the top 5 of best PVP players!
+      usage: /leaderboards-gun
+   gungameshop:
+      description: A gungame shop!
+      usage: /gungameshop
+   ggshop:
+      description: A gungame shop!
+      usage: /ggshop
+   setgunlevel:
+      description: Set the current level of a player.
+      usage: /setgunlevel [player] [amount]
+   setgp:
+      description: Set the current gunpoints amount of a player.
+      usage: /setgp [player] [amount]
+   gg:
+      description: Main gungame command.
+      usage: /gg

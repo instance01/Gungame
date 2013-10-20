@@ -1,0 +1,18 @@
+config:
+  changearenas: false
+  changeinterval: 2000
+strings:
+  nopermission: "§4You don't have permission!"
+  createarena: "§2Arenaname saved. Now create a spawn point with /gg setspawn <name> and a lobby spawn with /sb setlobby <name>."
+  lobbycreated: "§2Lobby successfully created!"
+  spawn1: "§2First spawnpoint registered."
+  spawn2: "§2Second spawnpoint registered. Now create a join sign at the lobby (create a lobbyspawn if haven't done already) and start playing! :)"
+  arenaremoved: "§4Arena removed."
+  notenoughmoney: "§4You don't have enough money!"
+# ATTENTION: Don't change anything after this line except you know what you are doing.
+# 
+player:
+  ped4:
+    gp: 100
+arena:
+  test:
