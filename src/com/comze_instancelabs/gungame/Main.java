@@ -83,7 +83,7 @@ public final class Main extends JavaPlugin implements Listener{
 	
 	@Override
     public void onEnable(){
-		getLogger().info("Initializing gun-game . . .");
+		getLogger().info("Initializing GunGame ALPHA");
 		getServer().getPluginManager().registerEvents(this, this);
 		
 		getConfig().options().copyDefaults(true);
@@ -116,8 +116,7 @@ public final class Main extends JavaPlugin implements Listener{
     }
  
     @Override
-    public void onDisable() {
-    	getLogger().info("Disabling gungame :(");
+    public void onDisable(){
     	Map<Player, Integer> map = arenap;
     	for (Player key : map.keySet()) {
     		Location t = new Location(key.getWorld(), getConfig().getDouble("arena." + aren + ".lobbyspawn.x"), getConfig().getDouble("arena." + aren + ".lobbyspawn.y"), getConfig().getDouble("arena." + aren + ".lobbyspawn.z"));
@@ -716,8 +715,9 @@ public final class Main extends JavaPlugin implements Listener{
                     	String arena = s.getLine(i + 1);
                     	aren = arena;
                     	s.setLine(i + 2, "§4" + Integer.toString(arenap.size()));
-                    			
+                    	
             			arenap.put(event.getPlayer(), 0);
+
                         Location t = new Location(Bukkit.getWorld(getConfig().getString(arena + ".spawn.world")), getConfig().getDouble(arena + ".spawn.x"), getConfig().getDouble(arena + ".spawn.y"), getConfig().getDouble(arena + ".spawn.z"));
                         event.getPlayer().teleport(t);
                         
@@ -733,8 +733,8 @@ public final class Main extends JavaPlugin implements Listener{
                         meta.setDisplayName("gunsword");
                         selectwand.setItemMeta(meta);
                         //ShapelessRecipe recipe = new ShapelessRecipe(selectwand).addIngredient(Material.POTION);
-                        ShapelessRecipe recipe = new ShapelessRecipe(selectwand);
-                        this.getServer().addRecipe(recipe);
+                        //ShapelessRecipe recipe = new ShapelessRecipe(selectwand);
+                        //this.getServer().addRecipe(recipe);
                         
                         event.getPlayer().getInventory().addItem(selectwand);
                         event.getPlayer().updateInventory();
@@ -743,8 +743,23 @@ public final class Main extends JavaPlugin implements Listener{
                         this.updateScoreBoard();
 
                         this.addextraitems(event.getPlayer());
+                        
+                        // check for players that are not ingame anymore and remove them
+            			ArrayList<Player> torem = new ArrayList<Player>();
+            			for(Player p : arenap.keySet()){
+            				if(!p.isOnline()){
+            					torem.add(p);
+            				}
+            			}
+            			for(Player p : torem){
+            				try{
+            					
+            				}catch(Exception e){
+            					arenap.remove(p);	
+            				}
+            			}
 
-                    } //end of if s.getline .. [BOAT]
+                    } //end of if s.getline ..
                     else if(s.getLine(i).equalsIgnoreCase("[GG-LEAVE]")){
                     	event.getPlayer().getInventory().clear();
                         event.getPlayer().getInventory().setHelmet(null);
@@ -993,7 +1008,7 @@ public final class Main extends JavaPlugin implements Listener{
     
     public String arenaname = ""; 
     
-    public int xo = 0;
+    /*public int xo = 0;
     public int yo = 0;
     public int zo = 0;
     
@@ -1056,6 +1071,6 @@ public final class Main extends JavaPlugin implements Listener{
     		}
     	}
         
-    }
+    }*/
     
 }
